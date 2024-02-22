@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
+import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const login = (req, res) => {
   console.log("Login User");
@@ -39,6 +40,7 @@ export const signup = async (req, res) => {
     });
     if (newUser) {
       // Generate JWT Token
+      generateTokenAndSetCookie(newUser._id, res);
       await newUser.save();
 
       res.status(201).json({
@@ -50,7 +52,6 @@ export const signup = async (req, res) => {
     } else {
       res.status(400).json({ error: "Invalid User Data" });
     }
-
   } catch (error) {
     console.log("Error in SignUp controller", error.message);
     res.status(500).json({ error: "Internal Server Error" });

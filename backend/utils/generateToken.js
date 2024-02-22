@@ -6,8 +6,8 @@ const generateTokenAndSetCookie = (userId, res) => {
   res.cookie("jwt", token, {
     maxAge: 15 * 24 * 60 * 60 * 1000,
     httpOnly: true, //prevent acces as attacks.
-    sameSite: "strict"
+    sameSite: "strict",
   });
 };
 
-export default generateTokenAndSetCookie
+export default generateTokenAndSetCookie;
