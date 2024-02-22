@@ -64,7 +64,7 @@ export const login = async (req, res) => {
     );
 
     if (!user || !isPasswordCorrect) {
-      return res.status(400).json({ error: "Invalid Credentials" });
+      return res.status(400).json({ error: "Invalid username or password" });
     }
   } catch (error) {
     console.log("Error in Login controller", error.message);
