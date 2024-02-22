@@ -1,5 +1,5 @@
 import User from "../models/user.model.js";
-
+import bcrypt from "bcryptjs";
 export const login = (req, res) => {
   console.log("Login User");
 };
@@ -20,6 +20,9 @@ export const signup = async (req, res) => {
     }
 
     // Hash Password here
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     // https://avatar-placeholder.iran.liara.run/
     const boyProfilePics = `https://avatar.iran.liara.run/public/boy?username=${username}`;
     const girlProfilePics = `https://avatar.iran.liara.run/public/girl?username=${username}`;
@@ -27,7 +30,7 @@ export const signup = async (req, res) => {
     const newUser = new User({
       fullName,
       username,
-      password,
+      password: hashedPassword,
       gender,
       profilePic: gender == "male" ? boyProfilePics : girlProfilePics,
     });
