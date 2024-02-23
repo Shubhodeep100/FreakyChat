@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 app.use(express.json()); //To parse the incoming requests with JSON payloads (from req.body)
 app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.listen(PORT, () => {
   connectToMongoDB();
