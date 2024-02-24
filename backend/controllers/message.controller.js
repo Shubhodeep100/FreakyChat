@@ -52,7 +52,7 @@ export const getMessages = async (req, res) => {
       participants: {
         $all: [senderId, userToChatId],
       },
-    }).populate("messages");
+    }).populate("messages"); //Not Reference, but actual message itself.
 
     res.status(200).json(conversation.messages);
   } catch (error) {
