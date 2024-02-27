@@ -1,10 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 body {
   background: linear-gradient(135deg, #3b2667 10%, #bc78ec 100%);
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -34,7 +33,11 @@ body {
   border: none;
   text-transform: uppercase;
   transition: 0.4s ease-in-out;
-  &:hover {
-    background-color: #4e0eff;
-  }
+}
+.button:hover {
+    background-color: rgb(45, 59, 212);
+}
+
+.formCont{
+    background-image: linear-gradient(to top, #090c0c 20%, #330867 70%);
 }
