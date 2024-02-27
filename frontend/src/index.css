@@ -8,3 +8,33 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+.inputClass {
+  background-color: transparent;
+  padding: 1rem;
+  border: 0.1rem solid #4e0eff;
+  border-radius: 0.4rem;
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+  &:focus {
+    border: 0.1rem solid #997af0;
+    outline: none;
+  }
+}
+
+.button {
+  background-color: #4678ed;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  border: none;
+  text-transform: uppercase;
+  transition: 0.4s ease-in-out;
+  &:hover {
+    background-color: #4e0eff;
+  }
+}
