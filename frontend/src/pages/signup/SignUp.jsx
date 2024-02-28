@@ -1,11 +1,12 @@
 import logo from "../assets/chatlogo.png";
+import GenderCheckBox from "./GenderCheckBox";
 function SignUp() {
   return (
     <div className="flex flex-col justify-center gap-1 items-center min-w-96">
-      <form className="flex flex-col gap-6 px-10 py-14 formCont w-full backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-2xl">
+      <form className="flex flex-col gap-6 px-10 py-6 formCont w-full backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-2xl">
         <div className="flex items-center gap-3 justify-center">
           <img src={logo} alt="frenzychat" className="h-10 w-10" />
-          <h1 className="text-2xl text-white font-serif">FreakyChatt</h1>
+          <h1 className="text-2xl text-white font-black font-serif tracking-wide">FreakyChatt</h1>
         </div>
         <input
           type="text"
@@ -41,7 +42,7 @@ function SignUp() {
         >
           Already have an account?
         </a>
-
+<GenderCheckBox/>
         <button type="submit" className="button">
           SignUp
         </button>
