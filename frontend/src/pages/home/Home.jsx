@@ -1,7 +1,9 @@
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="flex sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter-lg bg-opacity-0 ">
+      
+    </div>
+  );
+};
 
-export default Home
+export default Home;
