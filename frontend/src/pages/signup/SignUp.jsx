@@ -51,9 +51,6 @@ function SignUp() {
         <button type="submit" className="button">
           SignUp
         </button>
-        {/* <span>
-          Already have an account ? <Link to="/login">Login</Link>
-        </span> */}
       </form>
     </div>
   );

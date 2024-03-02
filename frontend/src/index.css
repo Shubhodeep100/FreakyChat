@@ -62,3 +62,23 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #817f7f;
 }
+
+.containerbody {
+  background: linear-gradient(
+    55deg,
+    #212121 0%,
+    #212121 40%,
+    #323232 calc(40% + 1px),
+    #323232 60%,
+    #008f95 calc(60% + 1px),
+    #008f95 70%,
+    #14ffec calc(70% + 1px),
+    #14ffec 100%
+  );
+}
+
+/* .msgcontainer {
+  background: linear-gradient(180deg, #ffffff 0%, #000000 100%),
+    linear-gradient(90deg, #ffffff 0%, #000000 100%), #00ffff;
+  background-blend-mode: multiply, screen, normal;
+} */
