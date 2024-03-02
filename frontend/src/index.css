@@ -44,11 +44,10 @@ body {
 
 ::-webkit-scrollbar {
   cursor: pointer;
-  width: 4px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  cursor: pointer;
   background-color: transparent;
 }
 
