@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/chatlogo.png";
 function Login() {
   return (
@@ -23,13 +24,18 @@ function Login() {
           className="inputClass"
           // onChange={(e) => handleChange(e)}
         />
+        <div>
+          <Link
+            to="/signup"
+            className="text-sm hover:underline hover:text-blue-600"
+          >
+            {"Don't"} have an account ?
+          </Link>
+        </div>
 
         <button type="submit" className="button">
           Login
         </button>
-        {/* <span>
-          Already have an account ? <Link to="/login">Login</Link>
-        </span> */}
       </form>
     </div>
   );

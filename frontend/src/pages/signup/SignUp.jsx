@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/chatlogo.png";
 import GenderCheckBox from "./GenderCheckBox";
 function SignUp() {
@@ -38,12 +39,14 @@ function SignUp() {
           className="inputClass"
           // onChange={(e) => handleChange(e)}
         />
-        <a
-          href="#"
-          className="text-sm hover:underline hover:text-blue-600 inline-block"
-        >
-          Already have an account?
-        </a>
+        <div>
+          <Link
+            to="/login"
+            className="text-sm hover:underline hover:text-blue-600"
+          >
+            Already have an account ?
+          </Link>
+        </div>
         <GenderCheckBox />
         <button type="submit" className="button">
           SignUp
