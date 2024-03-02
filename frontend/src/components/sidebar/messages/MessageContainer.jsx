@@ -32,9 +32,9 @@ const NoChatSelected = () => {
         <p>
           {" "}
           Welcome to{" "}
-          <span className="bg-gradient-to-r from-yellow-300 to-orange-100 bg-clip-text text-transparent font-bold text-2xl">
-            FreakyChatt
-          </span>
+          <h1 className="text-2xl text-white tracking-wide font-signature">
+            Freaky<span className="text-green-500">Chatt</span>
+          </h1>
         </p>
         <p>Select a Chat to start messaging</p>
         <TiMessages className="text-3xl md:text-6xl text-center " />

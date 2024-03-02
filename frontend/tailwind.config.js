@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      signature: ["Madimi One"],
+    },
   },
   // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
