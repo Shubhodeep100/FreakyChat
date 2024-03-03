@@ -5,6 +5,7 @@ export default {
     extend: {},
     fontFamily: {
       signature: ["Madimi One"],
+      txt:["Nunito"]
     },
   },
   // eslint-disable-next-line no-undef
