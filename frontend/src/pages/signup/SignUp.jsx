@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import logo from "../assets/chatlogo.png";
 import GenderCheckBox from "./GenderCheckBox";
 import { useState } from "react";
+import useSignup from "../../hooks/useSignup";
+
 const SignUp = () => {
   const [inputs, setInputs] = useState({
     fullName: "",
@@ -11,18 +13,25 @@ const SignUp = () => {
     gender: "",
   });
 
+  const { loading, signup } = useSignup();
+
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signup(inputs);
   };
 
   return (
-    <div className="flex flex-col justify-center gap-1 items-center min-w-96">
+    <div className="flex flex-row justify-between items-center mx-6">
+      <div className="text-white text-3xl font-bold text-wrap sm:text-4xl md:text-7xl">
+        <h1>Never miss a loved ones message.</h1>
+        <h1>Join today.</h1>
+      </div>
       <form
-        className="flex flex-col gap-5 px-10 py-6 formCont w-full backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-2xl"
+        className="flex flex-col gap-5 px-10 py-6 formCont min-w-96 backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-3xl"
         onSubmit={handleSubmit}
       >
         <div className="flex items-center gap-3 justify-center">
@@ -34,7 +43,6 @@ const SignUp = () => {
         <input
           type="text"
           placeholder="Full Name"
-          name="username"
           className="inputClass"
           value={inputs.fullName}
           onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
@@ -42,7 +50,6 @@ const SignUp = () => {
         <input
           type="text"
           placeholder="Username"
-          name="username"
           className="inputClass"
           value={inputs.username}
           onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
@@ -50,7 +57,6 @@ const SignUp = () => {
         <input
           type="password"
           placeholder="Password"
-          name="Password"
           className="inputClass"
           value={inputs.password}
           onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
@@ -58,7 +64,6 @@ const SignUp = () => {
         <input
           type="password"
           placeholder="Confirm Password"
-          name="Password"
           className="inputClass"
           value={inputs.confirmPassword}
           onChange={(e) =>

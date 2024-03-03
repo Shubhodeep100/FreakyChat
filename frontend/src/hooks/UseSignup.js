@@ -1,8 +1,10 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+// import { useAuthContext } from "../context/AuthContext";
 
-const UseSignup = () => {
+const useSignup = () => {
   const [loading, setLoading] = useState(false);
+  // const { setAuthUser } = useAuthContext();
 
   const signup = async ({
     fullName,
@@ -22,20 +24,24 @@ const UseSignup = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
+      const res = await fetch("/api/auth/signup", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fullName,
           username,
           password,
+          confirmPassword,
           gender,
         }),
       });
 
       const data = await res.json();
+      // if (data.error) {
+      //   throw new Error(data.error);
+      // }
+      // localStorage.setItem("chat-user", JSON.stringify(data));
+      // setAuthUser(data);
       console.log(data);
     } catch (error) {
       toast.error(error.message);
@@ -43,9 +49,10 @@ const UseSignup = () => {
       setLoading(false);
     }
   };
+
   return { loading, signup };
 };
-export default UseSignup;
+export default useSignup;
 
 function handleInputErrors({
   fullName,
@@ -55,7 +62,7 @@ function handleInputErrors({
   gender,
 }) {
   if (!fullName || !username || !password || !confirmPassword || !gender) {
-    toast.error("Please fill all the required fields");
+    toast.error("Please fill in all fields");
     return false;
   }
 
@@ -65,8 +72,9 @@ function handleInputErrors({
   }
 
   if (password.length < 6) {
-    toast.error("Password must be at least 6 characters long");
+    toast.error("Password must be at least 6 characters");
     return false;
   }
+
   return true;
 }
