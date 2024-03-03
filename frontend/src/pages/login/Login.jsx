@@ -17,7 +17,7 @@ function Login() {
     <div className="flex flex-row justify-between gap-1 items-center mx-6 loginwall">
       <div className="text-white text-7xl font-bold text-wrap">
         <h1>Never miss a loved ones message.</h1>
-        <h1>Join today.</h1>
+        <h1 className="text-gray-500 font-txt">Join today.</h1>
       </div>
       <form
         className="flex flex-col gap-7 px-16 py-14 formCont  min-w-96 backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-3xl"
