@@ -14,7 +14,7 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-row justify-between gap-1 items-center mx-6">
+    <div className="flex flex-row justify-between gap-1 items-center mx-6 loginwall">
       <div className="text-white text-7xl font-bold text-wrap">
         <h1>Never miss a loved ones message.</h1>
         <h1>Join today.</h1>

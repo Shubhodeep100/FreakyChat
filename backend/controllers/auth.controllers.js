@@ -33,6 +33,7 @@ export const signup = async (req, res) => {
       gender,
       profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
     });
+    
     if (newUser) {
       // Generate JWT Token
       generateTokenAndSetCookie(newUser._id, res);

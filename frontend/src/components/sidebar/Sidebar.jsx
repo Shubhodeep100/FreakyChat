@@ -6,12 +6,12 @@ import SearchInput from "./SearchInput";
 const Sidebar = () => {
   const { loading, logout } = useLogout();
   return (
-    <div className="border-r border-slate-500 p-4 flex flex-col">
+    <div className="border-r border-slate-500 flex flex-col p-1">
       <SearchInput />
       <div className="divider px-3"></div>
       <Conversations />
       {!loading ? (
-        <div className="flex flex-row gap-3 group" onClick={logout}>
+        <div className="flex flex-row gap-3 group " onClick={logout}>
           <LogoutButton />
           <p className="group-hover:cursor-pointer">Logout</p>
         </div>
