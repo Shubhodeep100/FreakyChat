@@ -2,10 +2,16 @@ import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import chaticon from "../../../assets/chat.png";
 import useConversation from "../../../zustand/useConversation";
+import { useEffect } from "react";
 
 const MessageContainer = () => {
-const { selectedConversation, setSelectedConversation } = useConversation();
+  const { selectedConversation, setSelectedConversation } = useConversation();
 
+  useEffect(() => {
+
+    // Unmounting(Cleanup conversation);
+    return () => setSelectedConversation(null);
+  }, []);
 
   return (
     <div className="md:min-w-[1000px] flex flex-col chatbody">
@@ -16,7 +22,9 @@ const { selectedConversation, setSelectedConversation } = useConversation();
           <div className="bg-zinc-700 px-4 py-1 flex flex-row items-center gap-2">
             <span className="label-text ">To: </span>
             <div className="flex flex-col">
-              <span className="text-white text-xl">{selectedConversation.fullName}</span>
+              <span className="text-white text-xl">
+                {selectedConversation.fullName}
+              </span>
               <spna className="text-xs">Click here for contact info</spna>
             </div>
           </div>
