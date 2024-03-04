@@ -3,6 +3,7 @@ import logo from "../assets/chatlogo.png";
 import GenderCheckBox from "./GenderCheckBox";
 import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
+import chaticon from "../../assets/chat.png";
 
 const SignUp = () => {
   const [inputs, setInputs] = useState({
@@ -28,7 +29,16 @@ const SignUp = () => {
     <div className="flex flex-row justify-between items-center mx-6">
       <div className="text-white text-3xl font-bold text-wrap sm:text-4xl md:text-7xl">
         <h1>Never miss a loved ones message.</h1>
-        <h1 className="text-gray-500 font-txt">Join today.</h1>
+        <div className="flex flex-row gap-6">
+          <h1 className="text-gray-500 font-txt">Join today.</h1>
+          <div className="flex justify-center items-end">
+            <img
+              src={chaticon}
+              alt=""
+              className="w-14 h-14 transform transition duration-500 hover:scale-110"
+            />
+          </div>
+        </div>
       </div>
       <form
         className="flex flex-col gap-5 px-10 py-6 formCont min-w-96 backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-3xl"
