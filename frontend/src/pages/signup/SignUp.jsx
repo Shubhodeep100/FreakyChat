@@ -27,7 +27,7 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-row justify-between items-center mx-6">
-      <div className="text-white text-3xl font-bold text-wrap sm:text-4xl md:text-7xl">
+      <div className="text-white text-3xl font-bold text-wrap sm:text-4xl md:text-7xl cursor-default">
         <h1>Never miss a loved ones message.</h1>
         <div className="flex flex-row gap-6">
           <h1 className="text-gray-500 font-txt">Join today.</h1>
