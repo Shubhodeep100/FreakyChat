@@ -2,7 +2,7 @@ import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import chaticon from "../../../assets/chat.png";
 const MessageContainer = () => {
-  const noChatSelected = false;
+  const noChatSelected = true;
 
   return (
     <div className="md:min-w-[1000px] flex flex-col chatbody">
