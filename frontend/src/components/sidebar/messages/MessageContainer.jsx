@@ -2,17 +2,20 @@ import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import chaticon from "../../../assets/chat.png";
 const MessageContainer = () => {
-  const noChatSelected = true;
+  const noChatSelected = false;
 
   return (
-    <div className="md:min-w-[1000px] flex flex-col containerbody">
+    <div className="md:min-w-[1000px] flex flex-col chatbody">
       {noChatSelected ? (
         <NoChatSelected />
       ) : (
         <>
-          <div className="bg-zinc-700 px-4 py-2">
-            <span className="label-text">To: </span>
-            <span className="text-white text-xl">Shubhodeep</span>
+          <div className="bg-zinc-700 px-4 py-1 flex flex-row items-center gap-2">
+            <span className="label-text ">To: </span>
+            <div className="flex flex-col">
+              <span className="text-white text-xl">Shubhodeep</span>
+              <spna className="text-xs">Click here for contact info</spna>
+            </div>
           </div>
           <Messages />
           <MessageInput />
