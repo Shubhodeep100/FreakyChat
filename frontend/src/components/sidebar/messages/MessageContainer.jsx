@@ -1,8 +1,8 @@
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
-import { TiMessages } from "react-icons/ti";
+import chaticon from "../../../assets/chat.png";
 const MessageContainer = () => {
-  const noChatSelected = false;
+  const noChatSelected = true;
 
   return (
     <div className="md:min-w-[1000px] flex flex-col containerbody">
@@ -36,8 +36,13 @@ const NoChatSelected = () => {
             Freaky<span className="text-green-500">Chatt</span>
           </h1>
         </p>
-        <p>Select a Chat to start messaging</p>
-        <TiMessages className="text-3xl md:text-6xl text-center " />
+        <p>Select a Chat to start messaging.</p>
+
+        <img
+          src={chaticon}
+          alt=""
+          className="w-14 h-14 transform transition duration-500 hover:scale-110"
+        />
       </div>
     </div>
   );
