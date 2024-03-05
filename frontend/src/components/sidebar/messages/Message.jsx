@@ -1,5 +1,6 @@
 import { useAuthContext } from "../../../context/AuthContext";
 import { extractTime } from "../../../utils/extractTime";
+
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
   const formattedTime = extractTime(message.createdAt);
