@@ -1,8 +1,8 @@
 import { useAuthContext } from "../../../context/AuthContext";
-
+import { extractTime } from "../../../utils/extractTime";
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
-
+const formattedTime = extractTime(message.createdAt);
   const fromMe = message.senderId === authUser._id;
   const chatClasssName = fromMe ? "chat-end" : "chat-start";
   const bubbleBgColor = fromMe
@@ -17,7 +17,7 @@ const Message = ({ message }) => {
         >
           {message.message}
           <div className="chat-footer text-sm flex gap-1 items-end text-slate-200">
-            {message.createdAt}
+            {formattedTime}
           </div>
         </div>
       </div>
