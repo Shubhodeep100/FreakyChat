@@ -4,10 +4,20 @@ import chaticon from "../../../assets/chat.png";
 import { CiSearch, CiMenuKebab } from "react-icons/ci";
 import { FcVideoCall } from "react-icons/fc";
 import useConversation from "../../../zustand/useConversation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
+
+const [state, setState] = useState({ isDropdownOpen: false });
+
+const toggleDropdown = () => {
+  setState((prevState) => ({
+    ...prevState,
+    isDropdownOpen: !prevState.isDropdownOpen,
+  }));
+};
+
 
   useEffect(() => {
     // Unmounting(Cleanup conversation);
@@ -34,14 +44,29 @@ const MessageContainer = () => {
             </div>
 
             <div className="flex flex-row justify-between w-28">
-              <div className="p-2 hover:bg-gray-600 rounded-full">
-                <FcVideoCall className="cursor-pointer text-white text-xl " />
+              <div className="p-2 hover:bg-gray-600 rounded-full cursor-pointer">
+                <FcVideoCall className=" text-white text-xl " />
               </div>
-              <div className="p-2 hover:bg-gray-600 rounded-full">
-                <CiSearch className="cursor-pointer text-white text-xl" />
+              <div className="p-2 hover:bg-gray-600 rounded-full cursor-pointer">
+                <CiSearch className=" text-white text-xl" />
               </div>
-              <div className="p-2 hover:bg-gray-600 rounded-full">
-                <CiMenuKebab className="cursor-pointer text-white text-xl" />
+              <div className="relative p-2 hover:bg-gray-600 rounded-full cursor-pointer">
+                <CiMenuKebab
+                  className=" text-white text-xl"
+                  onClick={toggleDropdown}
+                />
+                {state.isDropdownOpen && (
+                  <div className="absolute items-center flex  flex-col right-2 top-10 bg-zinc-600 rounded-md shadow-md w-48  z-50 cursor-pointer">
+                    <ul className="h-full w-full text-start my-1 ">
+                      <li className="hover:bg-zinc-700 py-2 px-4">Contact Info</li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">Close chat</li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">Delete chat</li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">Report</li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">Mute messages</li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           </div>
