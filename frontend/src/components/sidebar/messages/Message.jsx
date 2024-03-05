@@ -1,4 +1,15 @@
-const Message = () => {
+import {useAuthContext} from '../../../context/AuthContext';
+import useConversation from '../../../zustand/useConversation';
+
+const Message = ({ message }) => {
+  const { authUser } = useAuthContext();
+
+  const {selectedConversation} = useConversation();
+  const fromMe = message.senderId === authUser._id;
+  const chatClasssName = fromMe ? 'chat-end' : 'chat-start';
+  const profilePic = fromMe ? authUser.profilePic : selectedConversation.profilePic;
+
+  
   return (
     <div className="chat chat-end">
       <div className="chat-image avatar">
