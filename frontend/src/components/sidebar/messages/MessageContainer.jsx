@@ -44,8 +44,8 @@ const toggleDropdown = () => {
             </div>
 
             <div className="flex flex-row justify-between w-28">
-              <div className="p-2 hover:bg-gray-600 rounded-full cursor-pointer">
-                <FcVideoCall className=" text-white text-xl " />
+              <div className="p-2 hover:bg-gray-600 rounded-full cursor-not-allowed">
+                <FcVideoCall className=" text-white text-xl" />
               </div>
               <div className="p-2 hover:bg-gray-600 rounded-full cursor-pointer">
                 <CiSearch className=" text-white text-xl" />
@@ -56,13 +56,21 @@ const toggleDropdown = () => {
                   onClick={toggleDropdown}
                 />
                 {state.isDropdownOpen && (
-                  <div className="absolute items-center flex  flex-col right-2 top-10 bg-zinc-600 rounded-md shadow-md w-48  z-50 cursor-pointer">
-                    <ul className="h-full w-full text-start my-1 ">
-                      <li className="hover:bg-zinc-700 py-2 px-4">Contact Info</li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">Close chat</li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">Delete chat</li>
+                  <div className="absolute items-center flex  flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer">
+                    <ul className="h-full w-full text-start my-1 text-white text-sm">
+                      <li className="hover:bg-zinc-700 py-2 px-4">
+                        Contact Info
+                      </li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">
+                        Close chat
+                      </li>
+                      <li className="hover:bg-zinc-700 py-2 px-4">
+                        Delete chat
+                      </li>
                       <li className="hover:bg-zinc-700 py-2 px-4">Report</li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">Mute messages</li>
+                      <li className="hover:bg-zinc-700 py-2 px-4 ">
+                        Mute notification
+                      </li>
                       <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
                     </ul>
                   </div>
