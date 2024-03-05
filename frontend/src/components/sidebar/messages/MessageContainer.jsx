@@ -33,10 +33,16 @@ const MessageContainer = () => {
               </div>
             </div>
 
-            <div className="flex flex-row justify-between w-24">
-              <FcVideoCall className="cursor-pointer text-white text-xl" />
-              <CiSearch className="cursor-pointer text-white text-xl" />
-              <CiMenuKebab className="cursor-pointer text-white text-xl" />
+            <div className="flex flex-row justify-between w-28">
+              <div className="p-2 hover:bg-gray-600 rounded-full">
+                <FcVideoCall className="cursor-pointer text-white text-xl " />
+              </div>
+              <div className="p-2 hover:bg-gray-600 rounded-full">
+                <CiSearch className="cursor-pointer text-white text-xl" />
+              </div>
+              <div className="p-2 hover:bg-gray-600 rounded-full">
+                <CiMenuKebab className="cursor-pointer text-white text-xl" />
+              </div>
             </div>
           </div>
           <Messages />
