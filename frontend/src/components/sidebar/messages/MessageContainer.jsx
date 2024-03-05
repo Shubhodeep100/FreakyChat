@@ -8,19 +8,20 @@ const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   useEffect(() => {
-
     // Unmounting(Cleanup conversation);
     return () => setSelectedConversation(null);
-  }, []);
+  }, [setSelectedConversation]);
 
   return (
-    <div className="md:min-w-[1000px] flex flex-col chatbody">
+    <div className="md:min-w-[1100px] flex flex-col chatbody">
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           <div className="bg-zinc-700 px-4 py-1 flex flex-row items-center gap-2">
-            <span className="label-text ">To: </span>
+            <div className="w-9 rounded-full">
+              <img src={selectedConversation.profilePic} alt="ProfilePic" />
+            </div>
             <div className="flex flex-col">
               <span className="text-white text-xl">
                 {selectedConversation.fullName}

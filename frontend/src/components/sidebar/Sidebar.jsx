@@ -7,7 +7,10 @@ const Sidebar = () => {
   const { loading, logout } = useLogout();
   return (
     <div className="border-r border-slate-500 flex flex-col p-1">
+      <div>
+<p></p>
       <SearchInput />
+      </div>
       <div className="divider px-3"></div>
       <Conversations />
       {!loading ? (
