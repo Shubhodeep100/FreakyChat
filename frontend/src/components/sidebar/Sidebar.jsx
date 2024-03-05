@@ -6,9 +6,9 @@ import SearchInput from "./SearchInput";
 const Sidebar = () => {
   const { loading, logout } = useLogout();
   return (
-    <div className="border-r border-slate-500 flex flex-col p-1">
-      <div>
-        <SearchInput />
+    <div className="border-r border-slate-500 flex flex-col bg-zinc-900">
+      <div className="bg-zinc-700 py-0.5">
+        <SearchInput/>
       </div>
       <div className="divider px-3"></div>
       <Conversations />
