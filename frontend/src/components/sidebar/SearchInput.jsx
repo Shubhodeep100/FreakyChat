@@ -5,8 +5,8 @@ const SearchInput = () => {
     <form className="flex items-center gap-2">
       <input
         type="text1"
-        placeholder="Search"
-        className="input input-bordered rounded-full"
+        placeholder="Search or start new chat"
+        className="input input-bordered rounded-full text-sm"
       />
       <button type="submit" className="btn btn-circle bg-sky-500 text-white">
         <IoIosSearch className="text-xl"/>

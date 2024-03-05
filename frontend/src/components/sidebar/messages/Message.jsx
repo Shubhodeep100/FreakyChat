@@ -22,13 +22,12 @@ const Message = ({ message }) => {
         </div>
       </div> */}
       <div>
-        <div className={`chat-bubble text-white ${bubbleBgColor}`}>
+        <div className={`chat-bubble text-white ${bubbleBgColor} flex justify-between`}>
           {message.message}
-          <span className="text-xs text-gray-400 items-end">12:45</span>
+          <div className="chat-footer text-sm flex gap-1 items-end text-slate-200">
+            12:45
+          </div>
         </div>
-        {/* <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
-          12:45
-        </div> */}
       </div>
     </div>
   );

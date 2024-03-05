@@ -1,6 +1,8 @@
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import chaticon from "../../../assets/chat.png";
+import { CiSearch, CiMenuKebab } from "react-icons/ci";
+import { FcVideoCall } from "react-icons/fc";
 import useConversation from "../../../zustand/useConversation";
 import { useEffect } from "react";
 
@@ -18,15 +20,23 @@ const MessageContainer = () => {
         <NoChatSelected />
       ) : (
         <>
-          <div className="bg-zinc-700 px-4 py-1 flex flex-row items-center gap-2">
-            <div className="w-9 rounded-full">
-              <img src={selectedConversation.profilePic} alt="ProfilePic" />
+          <div className="bg-zinc-700 px-4 py-1 flex items-center justify-between">
+            <div className=" flex flex-row items-center gap-3 cursor-pointer">
+              <div className="w-9 rounded-full">
+                <img src={selectedConversation.profilePic} alt="ProfilePic" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-white text-xl">
+                  {selectedConversation.fullName}
+                </span>
+                <spna className="text-xs">Click here for contact info</spna>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-white text-xl">
-                {selectedConversation.fullName}
-              </span>
-              <spna className="text-xs">Click here for contact info</spna>
+
+            <div className="flex flex-row justify-between w-24">
+              <FcVideoCall className="cursor-pointer text-white text-xl" />
+              <CiSearch className="cursor-pointer text-white text-xl" />
+              <CiMenuKebab className="cursor-pointer text-white text-xl" />
             </div>
           </div>
           <Messages />
