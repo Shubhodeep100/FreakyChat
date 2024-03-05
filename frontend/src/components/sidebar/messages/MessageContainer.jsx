@@ -1,28 +1,69 @@
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
+import { AnimatePresence, motion } from "framer-motion";
 import chaticon from "../../../assets/chat.png";
 import { CiSearch, CiMenuKebab } from "react-icons/ci";
 import { FcVideoCall } from "react-icons/fc";
 import useConversation from "../../../zustand/useConversation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
+  const toggleButtonRef = useRef(null);
+  const [state, setState] = useState({ isDropdownOpen: false });
 
-const [state, setState] = useState({ isDropdownOpen: false });
+  const toggleDropdown = () => {
+    setState((prevState) => ({
+      ...prevState,
+      isDropdownOpen: !prevState.isDropdownOpen,
+    }));
+  };
 
-const toggleDropdown = () => {
-  setState((prevState) => ({
-    ...prevState,
-    isDropdownOpen: !prevState.isDropdownOpen,
-  }));
-};
-
+  const menuVars = {
+    initial: {
+      scaleY: 0,
+    },
+    animate: {
+      scaleY: 1,
+      transition: {
+        duration: 0.1,
+        ease: [0.12, 0, 0.12, 0],
+      },
+    },
+    exit: {
+      scaleY: 0,
+      transition: {
+        delay: 0.2,
+        duration: 0.5,
+        ease: [0.12, 1, 0.12, 1],
+      },
+    },
+  };
 
   useEffect(() => {
     // Unmounting(Cleanup conversation);
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        toggleButtonRef.current &&
+        !toggleButtonRef.current.contains(event.target)
+      ) {
+        setState((prevState) => ({
+          ...prevState,
+          isDropdownOpen: false,
+        }));
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="md:min-w-[1100px] flex flex-col chatbody">
@@ -54,27 +95,45 @@ const toggleDropdown = () => {
                 <CiMenuKebab
                   className=" text-white text-xl"
                   onClick={toggleDropdown}
+                  ref={toggleButtonRef}
                 />
-                {state.isDropdownOpen && (
-                  <div className="absolute items-center flex  flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer">
-                    <ul className="h-full w-full text-start my-1 text-white text-sm">
-                      <li className="hover:bg-zinc-700 py-2 px-4">
-                        Contact Info
-                      </li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">
-                        Close chat
-                      </li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">
-                        Delete chat
-                      </li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">Report</li>
-                      <li className="hover:bg-zinc-700 py-2 px-4 ">
-                        Mute notification
-                      </li>
-                      <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
-                    </ul>
-                  </div>
-                )}
+                <AnimatePresence>
+                  {state.isDropdownOpen && (
+                    <motion.div
+                      className="dropdown-content"
+                      variants={menuVars}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      transition={{
+                        duration: 0.2,
+                        type:"fade",
+                        stiffness: 60,
+                      }}
+                    >
+                      <div className="absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer">
+                        <ul className="h-full w-full text-start my-1 text-white text-sm">
+                          <li className="hover:bg-zinc-700 py-2 px-4">
+                            Contact Info
+                          </li>
+                          <li className="hover:bg-zinc-700 py-2 px-4">
+                            Close chat
+                          </li>
+                          <li className="hover:bg-zinc-700 py-2 px-4">
+                            Delete chat
+                          </li>
+                          <li className="hover:bg-zinc-700 py-2 px-4">
+                            Report
+                          </li>
+                          <li className="hover:bg-zinc-700 py-2 px-4 ">
+                            Mute notification
+                          </li>
+                          <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </div>
