@@ -13,9 +13,9 @@ const Conversations = () => {
           lastIdx={idx === conversation.length - 1}
         />
       ))}
-      {loading ? (
+      {/* {loading ? (
         <span className="loading loading-spinner mx-auto"></span>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };
