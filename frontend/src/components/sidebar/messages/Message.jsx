@@ -11,11 +11,12 @@ const Message = ({ message }) => {
     ? "bg-gradient-to-r from-slate-900 to-slate-700"
     : "bg-gradient-to-r from-indigo-400 to-cyan-400";
 
+  const shakeClass = message.shouldShake ? "shake" : "";
   return (
     <div className={`chat ${chatClasssName}`}>
       <div>
         <div
-          className={`chat-bubble  shadow-md shadow-black text-white ${bubbleBgColor} flex justify-between gap-2`}
+          className={`chat-bubble  shadow-md shadow-black text-white ${bubbleBgColor} ${shakeClass} flex justify-between gap-2`}
         >
           {message.message}
           <div className="chat-footer text-xs flex gap-1 items-end text-slate-200">
