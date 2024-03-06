@@ -6,6 +6,7 @@ import { CiSearch, CiMenuKebab } from "react-icons/ci";
 import { FcVideoCall } from "react-icons/fc";
 import useConversation from "../../../zustand/useConversation";
 import { useEffect, useState, useRef } from "react";
+import { useAuthContext } from "../../../context/AuthContext";
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
@@ -44,7 +45,6 @@ const MessageContainer = () => {
     // Unmounting(Cleanup conversation);
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
-
 
   return (
     <div className="md:min-w-[1100px] flex flex-col chatbody">
@@ -88,13 +88,12 @@ const MessageContainer = () => {
                       exit="exit"
                       transition={{
                         duration: 0.2,
-                        type:"fade",
+                        type: "fade",
                         stiffness: 60,
                       }}
                     >
                       <div className="absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer">
-                        <ul className="h-full w-full text-start my-1 text-white text-sm"
-                        >
+                        <ul className="h-full w-full text-start my-1 text-white text-sm">
                           <li className="hover:bg-zinc-700 py-2 px-4">
                             Contact Info
                           </li>
@@ -130,10 +129,12 @@ const MessageContainer = () => {
 export default MessageContainer;
 
 const NoChatSelected = () => {
+  const { authUser } = useAuthContext();
+
   return (
     <div className="flex items-center justify-center h-full w-full">
       <div className="px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2">
-        <p>Hello Shubhodeep!</p>
+        <p>{authUser.fullName}</p>
         <p>
           {" "}
           Welcome to{" "}
