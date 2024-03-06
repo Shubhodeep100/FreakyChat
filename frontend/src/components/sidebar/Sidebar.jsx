@@ -14,11 +14,13 @@ const Sidebar = () => {
       <Conversations />
       {!loading ? (
         <button
-          className="flex flex-row gap-2 group p-1.5 bg-black hover:bg-zinc-800 hover:text-white rounded-lg w-24 mb-3 ml-3"
+          className="flex flex-row gap-2 group p-1.5 bg-black hover:bg-zinc-800 hover:text-white rounded-lg w-24 my-3 ml-3 "
           onClick={logout}
         >
           <LogoutButton />
-          <p className="group-hover:cursor-pointer  font-txt">Logout</p>
+          <p className="group-hover:cursor-pointer  font-txt">
+            Logout
+          </p>
         </button>
       ) : (
         <span className="loading loading-spinner"></span>

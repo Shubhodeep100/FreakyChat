@@ -15,7 +15,7 @@ const Message = ({ message }) => {
     <div className={`chat ${chatClasssName}`}>
       <div>
         <div
-          className={`chat-bubble text-white ${bubbleBgColor} flex justify-between gap-2`}
+          className={`chat-bubble  shadow-md shadow-black text-white ${bubbleBgColor} flex justify-between gap-2`}
         >
           {message.message}
           <div className="chat-footer text-xs flex gap-1 items-end text-slate-200">
