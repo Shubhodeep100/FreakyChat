@@ -135,13 +135,13 @@ const NoChatSelected = () => {
     <div className="flex items-center justify-center h-full w-full">
       <div className="px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2">
         <p>{authUser.fullName}</p>
-        <p>
+        <div>
           {" "}
           Welcome to{" "}
           <h1 className="text-2xl text-white tracking-wide font-signature">
             Freaky<span className="text-green-500">Chatt</span>
           </h1>
-        </p>
+        </div>
         <p>Select a Chat to start messaging.</p>
 
         <img
