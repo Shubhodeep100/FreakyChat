@@ -8,15 +8,18 @@ const Sidebar = () => {
   return (
     <div className="border-r border-slate-500 flex flex-col bg-zinc-900">
       <div className="bg-zinc-700 py-0.5">
-        <SearchInput/>
+        <SearchInput />
       </div>
       <div className="divider px-3"></div>
       <Conversations />
       {!loading ? (
-        <div className="flex flex-row gap-3 group " onClick={logout}>
+        <button
+          className="flex flex-row gap-2 group p-1.5 bg-black hover:bg-zinc-800 hover:text-white rounded-lg w-24 mb-3 ml-3"
+          onClick={logout}
+        >
           <LogoutButton />
-          <p className="group-hover:cursor-pointer">Logout</p>
-        </div>
+          <p className="group-hover:cursor-pointer  font-txt">Logout</p>
+        </button>
       ) : (
         <span className="loading loading-spinner"></span>
       )}

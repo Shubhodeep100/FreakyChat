@@ -45,25 +45,6 @@ const MessageContainer = () => {
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        toggleButtonRef.current &&
-        !toggleButtonRef.current.contains(event.target)
-      ) {
-        setState((prevState) => ({
-          ...prevState,
-          isDropdownOpen: false,
-        }));
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="md:min-w-[1100px] flex flex-col chatbody">
@@ -112,7 +93,8 @@ const MessageContainer = () => {
                       }}
                     >
                       <div className="absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer">
-                        <ul className="h-full w-full text-start my-1 text-white text-sm">
+                        <ul className="h-full w-full text-start my-1 text-white text-sm"
+                        >
                           <li className="hover:bg-zinc-700 py-2 px-4">
                             Contact Info
                           </li>
