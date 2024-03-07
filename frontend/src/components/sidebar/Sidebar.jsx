@@ -4,6 +4,7 @@ import SearchInput from "./SearchInput";
 
 const Sidebar = () => {
   const { loading } = useLogout();
+  
 
   return (
     <div className="border-r border-slate-500 flex flex-col bg-zinc-900">
