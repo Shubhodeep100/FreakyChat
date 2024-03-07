@@ -56,8 +56,11 @@ const SignUp = () => {
         >
           <div className="flex items-center gap-3 justify-center">
             <img src={logo} alt="frenzychat" className="h-10 w-10" />
-            <h1 className="text-3xl text-white tracking-wide font-signature">
-              Freaky<span className="text-green-500">Chatt</span>
+            <h1 className="text-3xl text-violet-700 tracking-wide font-signature">
+              Freaky{" "}
+              <span className="bg-gradient-to-r from-orange-600 via-amber-300 to-orange-600 bg-clip-text text-transparent">
+                Chatt
+              </span>
             </h1>
           </div>
           <input

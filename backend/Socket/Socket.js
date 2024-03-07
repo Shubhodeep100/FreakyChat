@@ -33,17 +33,17 @@ io.on("connection", (socket) => {
 
 
   // Real Time Notification feature on receiver's end
-  // socket.on("sendMessage", ({ receiverId, message }) => {
-  //   const receiverSocketId = getReceiverSocketId(receiverId);
+  socket.on("sendMessage", ({ receiverId, message }) => {
+    const receiverSocketId = getReceiverSocketId(receiverId);
 
-  //   if (receiverSocketId) {
-  //     // Emit a notification event to the receiver
-  //     io.to(receiverSocketId).emit("newMessage", {
-  //       senderId: userId,
-  //       message,
-  //     });
-  //   }
-  // });
+    if (receiverSocketId) {
+      // Emit a notification event to the receiver
+      io.to(receiverSocketId).emit("newMessage", {
+        senderId: userId,
+        message,
+      });
+    }
+  });
 });
 
 export { app, io, server };
