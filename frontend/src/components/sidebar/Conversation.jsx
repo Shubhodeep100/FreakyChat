@@ -3,7 +3,6 @@ import useConversation from "../../zustand/useConversation";
 
 const Conversation = ({ conversation, lastIdx }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-
   const isSelected = selectedConversation?._id === conversation._id;
   const { onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(conversation._id);
@@ -22,10 +21,8 @@ const Conversation = ({ conversation, lastIdx }) => {
           </div>
         </div>
 
-        <div className="flex flex-col flex-1">
-          <div className="flex gap-3 justify-between">
-            <p className=" text-gray-200 font-txt">{conversation.fullName}</p>
-          </div>
+        <div className="flex flex-1">
+          <p className=" text-gray-200 font-txt">{conversation.fullName}</p>
         </div>
       </div>
 

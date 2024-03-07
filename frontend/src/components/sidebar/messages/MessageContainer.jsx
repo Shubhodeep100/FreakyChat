@@ -1,5 +1,6 @@
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
+import useLogout from "../../../hooks/useLogout";
 import { AnimatePresence, motion } from "framer-motion";
 import chaticon from "../../../assets/chat.png";
 import { CiSearch, CiMenuKebab } from "react-icons/ci";
@@ -9,10 +10,10 @@ import { useEffect, useState, useRef } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
 
 const MessageContainer = () => {
+  const { logout } = useLogout();
   const { selectedConversation, setSelectedConversation } = useConversation();
   const toggleButtonRef = useRef(null);
   const [state, setState] = useState({ isDropdownOpen: false });
-
   const toggleDropdown = () => {
     setState((prevState) => ({
       ...prevState,
@@ -110,6 +111,12 @@ const MessageContainer = () => {
                             Mute notification
                           </li>
                           <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
+                          <li
+                            className="hover:bg-zinc-700 py-2 px-4"
+                            onClick={logout}
+                          >
+                            Logout
+                          </li>
                         </ul>
                       </div>
                     </motion.div>
