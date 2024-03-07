@@ -20,7 +20,7 @@ const Sidebar = () => {
               <p className="font-txt">{loggedInUser.fullName}</p>
             </div>
 
-            <div className="w-10 rounded-full border-4 border-green-500  cursor-pointer ">
+            <div className="w-10 rounded-full border-4 border-green-600  cursor-pointer ">
               <img src={loggedInUser.profilePic} alt="user avatar" />
             </div>
           </div>
