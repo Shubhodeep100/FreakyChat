@@ -12,7 +12,7 @@ const Conversation = ({ conversation, lastIdx }) => {
   return (
     <>
       <div
-        className={`flex justify-between items-center hover:bg-zinc-800 rounded p-2 py-2 cursor-pointer
+        className={`flex justify-between items-center hover:bg-zinc-800 rounded p-2 py-2 cursor-pointer 
       ${isSelected ? "bg-zinc-700" : ""}
       `}
         onClick={() => setSelectedConversation(conversation)}
@@ -30,12 +30,7 @@ const Conversation = ({ conversation, lastIdx }) => {
             <p className=" text-gray-200 font-txt">{conversation.fullName}</p>
           </div>
         </div>
-        <div className="flex">
-          <div className="bg-blue-600 rounded-full p-0.5">
-          <p className="text-white text-xs">15</p>
-          </div>
-          {isHovered && <AiOutlineDown className="text-center" />}
-        </div>
+        {isHovered && <AiOutlineDown className="text-center" />}
       </div>
 
       {!lastIdx && <div className="divider my-0 py-0 h-1" />}
