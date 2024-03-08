@@ -7,7 +7,7 @@ const Conversation = ({ conversation, lastIdx }) => {
   const isSelected = selectedConversation?._id === conversation._id;
   const { onlineUsers } = useSocketContext();
   const isOnline = onlineUsers.includes(conversation._id);
-    const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
@@ -30,8 +30,12 @@ const Conversation = ({ conversation, lastIdx }) => {
             <p className=" text-gray-200 font-txt">{conversation.fullName}</p>
           </div>
         </div>
-
-        {isHovered && <AiOutlineDown />}
+        <div className="flex">
+          <div className="bg-blue-600 rounded-full p-0.5">
+          <p className="text-white text-xs">15</p>
+          </div>
+          {isHovered && <AiOutlineDown className="text-center" />}
+        </div>
       </div>
 
       {!lastIdx && <div className="divider my-0 py-0 h-1" />}
