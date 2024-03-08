@@ -24,25 +24,24 @@ io.on("connection", (socket) => {
   // io.emit() is used to send events to all connected clients.
   io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
+  // Real-time notification feature
+  socket.on("sendMessage", (message) => {
+    if (userId) {
+      const receiverSocketId = getReceiverSocketId(message.receiverId);
+      if (receiverSocketId) {
+        io.to(receiverSocketId).emit("getNotification", {
+          senderId: message.senderId,
+          isRead: false,
+          date: new Date(),
+        });
+      }
+    }
+  });
+
   // socket.on() is used to listen to the events & can be used both on client and on server side.
   socket.on("disconnect", () => {
     delete userSocketMap[userId];
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
-  });
-
-
-
-  // Real Time Notification feature on receiver's end
-  socket.on("sendMessage", ({ receiverId, message }) => {
-    const receiverSocketId = getReceiverSocketId(receiverId);
-
-    if (receiverSocketId) {
-      // Emit a notification event to the receiver
-      io.to(receiverSocketId).emit("newMessage", {
-        senderId: userId,
-        message,
-      });
-    }
   });
 });
 

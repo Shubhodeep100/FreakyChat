@@ -11,22 +11,38 @@ export const useSocketContext = () => {
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
+  const [incomingMessages, setIncomingMessages] = useState([]);
   const { authUser } = useAuthContext();
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5000", {
+      const newSocket = io("http://localhost:5000", {
         query: {
           userId: authUser._id,
         },
       });
-      setSocket(socket);
+      setSocket(newSocket);
 
-      socket.on("getOnlineUsers", (users) => {
+      newSocket.on("getOnlineUsers", (users) => {
         setOnlineUsers(users);
       });
 
-      return () => socket.close();
+      // Handle received messages here
+      newSocket.on("receiveMessage", ({ senderId, message }) => {
+        const newIncomingMessage = {
+          senderId,
+          message,
+        };
+        setIncomingMessages((prevMessages) => [
+          ...prevMessages,
+          newIncomingMessage,
+        ]);
+      });
+
+      return () => {
+        newSocket.close();
+        setSocket(null);
+      };
     } else {
       if (socket) {
         socket.close();
@@ -35,8 +51,16 @@ export const SocketContextProvider = ({ children }) => {
     }
   }, [authUser]);
 
+  const sendMessage = (receiverId, message) => {
+    if (socket) {
+      socket.emit("sendMessage", { receiverId, message });
+    }
+  };
+
   return (
-    <SocketContext.Provider value={{ socket, onlineUsers }}>
+    <SocketContext.Provider
+      value={{ socket, onlineUsers, incomingMessages, sendMessage }}
+    >
       {children}
     </SocketContext.Provider>
   );
