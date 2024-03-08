@@ -9,7 +9,7 @@ const Message = ({ message }) => {
   const chatClasssName = fromMe ? "chat-end" : "chat-start";
   const bubbleBgColor = fromMe
     ? "bg-gradient-to-r from-slate-900 to-slate-700"
-    : "bg-gradient-to-r from-indigo-400 to-cyan-400";
+    : "senderBubble";
 
   const shakeClass = message.shouldShake ? "shake" : "";
   return (
