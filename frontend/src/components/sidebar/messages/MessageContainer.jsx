@@ -1,7 +1,6 @@
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import useLogout from "../../../hooks/useLogout";
-import { AnimatePresence, motion } from "framer-motion";
 import chaticon from "../../../assets/chat.png";
 import { CiSearch, CiMenuKebab } from "react-icons/ci";
 import { FcVideoCall } from "react-icons/fc";
@@ -12,35 +11,22 @@ import { useAuthContext } from "../../../context/AuthContext";
 const MessageContainer = () => {
   const { logout } = useLogout();
   const { selectedConversation, setSelectedConversation } = useConversation();
-  const toggleButtonRef = useRef(null);
-  const [state, setState] = useState({ isDropdownOpen: false });
-  const toggleDropdown = () => {
-    setState((prevState) => ({
-      ...prevState,
-      isDropdownOpen: !prevState.isDropdownOpen,
-    }));
-  };
+  const [open, setOpen] = useState(false);
+  let menuRef = useRef();
 
-  const menuVars = {
-    initial: {
-      scaleY: 0,
-    },
-    animate: {
-      scaleY: 1,
-      transition: {
-        duration: 0.1,
-        ease: [0.12, 0, 0.12, 0],
-      },
-    },
-    exit: {
-      scaleY: 0,
-      transition: {
-        delay: 0.2,
-        duration: 0.5,
-        ease: [0.12, 1, 0.12, 1],
-      },
-    },
-  };
+  useEffect(() => {
+    const handler = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
 
   useEffect(() => {
     // Unmounting(Cleanup conversation);
@@ -73,55 +59,39 @@ const MessageContainer = () => {
               <div className="p-2 hover:bg-gray-600 rounded-full cursor-pointer">
                 <CiSearch className=" text-white text-xl" />
               </div>
-              <div className="relative p-2 hover:bg-gray-600 rounded-full cursor-pointer">
+              <div
+                className="relative p-2 hover:bg-gray-600 rounded-full cursor-pointer"
+                ref={menuRef}
+              >
                 <CiMenuKebab
                   className=" text-white text-xl"
-                  onClick={toggleDropdown}
-                  ref={toggleButtonRef}
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
                 />
-                <AnimatePresence>
-                  {state.isDropdownOpen && (
-                    <motion.div
-                      className="dropdown-content"
-                      variants={menuVars}
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                      transition={{
-                        duration: 0.2,
-                        type: "fade",
-                        stiffness: 60,
-                      }}
+
+                <div
+                  className={`dropdown-menu ${open ? "active" : "inactive"}`}
+                >
+                  <ul className="h-full w-full text-start my-1 text-white text-sm">
+                    <li className="hover:bg-zinc-700 py-2 px-4">
+                      Contact Info
+                    </li>
+                    <li className="hover:bg-zinc-700 py-2 px-4">Close chat</li>
+                    <li className="hover:bg-zinc-700 py-2 px-4">Delete chat</li>
+                    <li className="hover:bg-zinc-700 py-2 px-4">Report</li>
+                    <li className="hover:bg-zinc-700 py-2 px-4 ">
+                      Mute notification
+                    </li>
+                    <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
+                    <li
+                      className="hover:bg-zinc-700 py-2 px-4"
+                      onClick={logout}
                     >
-                      <div className="absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer">
-                        <ul className="h-full w-full text-start my-1 text-white text-sm">
-                          <li className="hover:bg-zinc-700 py-2 px-4">
-                            Contact Info
-                          </li>
-                          <li className="hover:bg-zinc-700 py-2 px-4">
-                            Close chat
-                          </li>
-                          <li className="hover:bg-zinc-700 py-2 px-4">
-                            Delete chat
-                          </li>
-                          <li className="hover:bg-zinc-700 py-2 px-4">
-                            Report
-                          </li>
-                          <li className="hover:bg-zinc-700 py-2 px-4 ">
-                            Mute notification
-                          </li>
-                          <li className="hover:bg-zinc-700 py-2 px-4">Block</li>
-                          <li
-                            className="hover:bg-zinc-700 py-2 px-4"
-                            onClick={logout}
-                          >
-                            Logout
-                          </li>
-                        </ul>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      Logout
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

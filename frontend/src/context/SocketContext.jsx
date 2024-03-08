@@ -11,7 +11,7 @@ export const useSocketContext = () => {
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const [incomingMessages, setIncomingMessages] = useState([]);
+  // const [incomingMessages, setIncomingMessages] = useState([]);
   const { authUser } = useAuthContext();
 
   useEffect(() => {
@@ -27,17 +27,17 @@ export const SocketContextProvider = ({ children }) => {
         setOnlineUsers(users);
       });
 
-      // Handle received messages here
-      newSocket.on("receiveMessage", ({ senderId, message }) => {
-        const newIncomingMessage = {
-          senderId,
-          message,
-        };
-        setIncomingMessages((prevMessages) => [
-          ...prevMessages,
-          newIncomingMessage,
-        ]);
-      });
+      // // Handle received messages here
+      // newSocket.on("receiveMessage", ({ senderId, message }) => {
+      //   const newIncomingMessage = {
+      //     senderId,
+      //     message,
+      //   };
+      //   setIncomingMessages((prevMessages) => [
+      //     ...prevMessages,
+      //     newIncomingMessage,
+      //   ]);
+      // });
 
       return () => {
         newSocket.close();
@@ -59,7 +59,7 @@ export const SocketContextProvider = ({ children }) => {
 
   return (
     <SocketContext.Provider
-      value={{ socket, onlineUsers, incomingMessages, sendMessage }}
+      value={{ socket, onlineUsers, sendMessage }}
     >
       {children}
     </SocketContext.Provider>

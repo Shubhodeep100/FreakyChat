@@ -16,7 +16,7 @@ const Sidebar = () => {
       <div className="divider px-3"></div>
       <Conversations />
       {!loading ? (
-        <div className="flex flex-row w-6/7 my-3 mx-3 ">
+        <div className="flex flex-row w-6/7 my-3 mx-3">
           <div className="flex justify-between w-full items-center">
             <div className="flex justify-center group p-1 items-center hover:bg-zinc-800 border border-1 hover:text-white bg-black rounded-lg w-3/4">
               <p className="font-txt text-xl">{authUser.fullName}</p>

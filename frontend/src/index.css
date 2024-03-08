@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --speed:400ms;
+}
+
 body {
   background: #6441a5; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -55,6 +59,39 @@ body {
  @apply bg-gradient-to-r from-gray-50 to-stone-200;
 }
 
+.dropdown-menu{
+  @apply absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer
+}
+
+.dropdown-menu.active{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: var(--speed) ease;
+}
+
+.dropdown-menu.inactive{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: var(--speed) ease;
+}
+
+
+.chatbody {
+ width: 100%;
+  height: 100%;
+  --s: 37px; /* control the size */
+  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+}
+
 ::-webkit-scrollbar {
   cursor: pointer;
   width: 5px;
@@ -71,21 +108,6 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #817f7f;
-}
-
-.chatbody {
- width: 100%;
-  height: 100%;
-  --s: 37px; /* control the size */
-
-  --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
-  --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
-  --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
-  --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
-  background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
-    var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
-    var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
-  background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
 }
 
 .shake {
