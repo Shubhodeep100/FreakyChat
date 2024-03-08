@@ -35,8 +35,11 @@ const SearchInput = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit" className="btn btn-circle bg-sky-500 text-white">
-        <IoIosSearch />
+      <button
+        type="submit"
+        className="btn btn-circle bg-orange-500 text-white"
+      >
+        <IoIosSearch className="text-xl"/>
       </button>
     </form>
   );

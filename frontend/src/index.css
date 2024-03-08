@@ -73,20 +73,26 @@ body {
 .dropdown-menu{
   @apply absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer
 }
-
-.dropdown-menu.active{
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  transition: var(--speed) ease;
+.dropdown-menu2{
+  @apply absolute items-center flex flex-col left-0 bottom-12 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer
 }
 
-.dropdown-menu.inactive{
+.dropdown-menu,
+.dropdown-menu2 {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
   transition: var(--speed) ease;
 }
+
+.dropdown-menu.active,
+.dropdown-menu2.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
 .senderBubble{
 background: #FDC830;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
