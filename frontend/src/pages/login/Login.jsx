@@ -5,7 +5,7 @@ import useLogin from "../../hooks/useLogin";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
 function Login() {
-   const transition = { type: "spring", duration: 3 };
+  const transition = { type: "spring", duration: 3 };
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -57,13 +57,15 @@ function Login() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+
           <input
             type="password"
             placeholder="Password"
-            className="inputClass"
+            className="inputClass "
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
           <div>
             <Link
               to="/signup"
