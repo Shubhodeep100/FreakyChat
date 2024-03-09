@@ -5,22 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  --speed:400ms;
+:root {
+  --speed: 400ms;
 }
 
 body {
-  background: #6441a5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #2a0845,
-    #6441a5
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #2a0845,
-    #6441a5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #6441a5;
+  background: -webkit-linear-gradient(to bottom, #2a0845, #6441a5);
+  background: linear-gradient(to bottom, #2a0845, #6441a5);
 }
 
 .inputClass {
@@ -29,25 +21,15 @@ body {
   border: 2px solid #9a94ab;
   border-radius: 0.4rem;
   color: #580fb0;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   font-size: 1rem;
-  &:focus {
-    border: 0.1rem solid #580fb0;
-    outline: none;
-  }
 }
 
-/* .inputEmoji {
-  width: 100%;
-  height: 50px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px 10px;
- 
-} */
-
+.inputClass:focus {
+  border: 0.1rem solid #580fb0;
+  outline: none;
+}
 
 .button {
   background-color: #580fb0;
@@ -67,14 +49,14 @@ body {
 }
 
 .formCont {
- @apply bg-gradient-to-r from-gray-50 to-stone-200;
+  @apply bg-gradient-to-r from-gray-50 to-stone-200;
 }
 
-.dropdown-menu{
-  @apply absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer
+.dropdown-menu {
+  @apply absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer;
 }
-.dropdown-menu2{
-  @apply absolute items-center flex flex-col left-0 bottom-12 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer
+.dropdown-menu2 {
+  @apply absolute items-center flex flex-col left-0 bottom-12 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer;
 }
 
 .dropdown-menu,
@@ -92,19 +74,24 @@ body {
   transform: translateY(0);
 }
 
-
-.senderBubble{
-background: #FDC830;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+.senderBubble {
+  background: #fdc830; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f37335,
+    #fdc830
+  ); 
+  background: linear-gradient(
+    to right,
+    #f37335,
+    #fdc830
+  );
 }
 
-
 .chatbody {
- width: 100%;
+  width: 100%;
   height: 100%;
-  --s: 37px; /* control the size */
+  --s: 37px;
   --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
   --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
   --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
@@ -132,9 +119,6 @@ background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, F
 ::-webkit-scrollbar-thumb:hover {
   background: #817f7f;
 }
-
-
-
 
 .shake {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.2s both;
