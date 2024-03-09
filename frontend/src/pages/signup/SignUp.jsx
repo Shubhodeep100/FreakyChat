@@ -114,22 +114,23 @@ const SignUp = () => {
             selectedGender={inputs.gender}
           />
 
-          <div>
-            <Link
-              to="/login"
-              className="text-sm hover:underline hover:text-blue-600"
-            >
-              Already have an account ?
-            </Link>
-          </div>
+          <Link
+            to={"/login"}
+            className="text-sm hover:underline hover:text-blue-600"
+          >
+            Already have an account ?
+          </Link>
 
-          <button type="submit" className="button" disabled={loading}>
-            {loading ? (
-              <span className="loading loading-spinner"></span>
-            ) : (
-              "Sign Up"
-            )}
-          </button>
+          <div>
+            <button type="submit" className="button" disabled={loading}>
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Sign Up"
+              )}
+            </button>
+          </div>
+          
         </form>
       </motion.div>
     </div>
