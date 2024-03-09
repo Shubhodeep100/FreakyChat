@@ -122,7 +122,7 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button type="submit" className="button">
+            <button disabled={loading} className="button">
               {loading ? (
                 <span className="loading loading-spinner"></span>
               ) : (
