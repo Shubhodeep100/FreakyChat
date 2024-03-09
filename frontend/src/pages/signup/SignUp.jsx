@@ -7,8 +7,7 @@ import useSignup from "../../hooks/useSignup";
 import chaticon from "../../assets/chat.png";
 
 const SignUp = () => {
-
-     const transition = { type: "spring", duration: 3 };
+  const transition = { type: "spring", duration: 3 };
   const [inputs, setInputs] = useState({
     fullName: "",
     username: "",
