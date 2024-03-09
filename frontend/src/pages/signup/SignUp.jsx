@@ -6,7 +6,6 @@ import GenderCheckBox from "./GenderCheckBox.jsx";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
 
-
 const SignUp = () => {
   const transition = { type: "spring", duration: 3 };
   const [inputs, setInputs] = useState({
@@ -64,36 +63,51 @@ const SignUp = () => {
               </span>
             </h1>
           </div>
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="inputClass"
-            value={inputs.fullName}
-            onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Username"
-            className="inputClass"
-            value={inputs.username}
-            onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="inputClass"
-            value={inputs.password}
-            onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="inputClass"
-            value={inputs.confirmPassword}
-            onChange={(e) =>
-              setInputs({ ...inputs, confirmPassword: e.target.value })
-            }
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="inputClass"
+              value={inputs.fullName}
+              onChange={(e) =>
+                setInputs({ ...inputs, fullName: e.target.value })
+              }
+            />
+          </div>
+
+          <div>
+            <input
+              type="text"
+              placeholder="Username"
+              className="inputClass"
+              value={inputs.username}
+              onChange={(e) =>
+                setInputs({ ...inputs, username: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              className="inputClass"
+              value={inputs.password}
+              onChange={(e) =>
+                setInputs({ ...inputs, password: e.target.value })
+              }
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className="inputClass"
+              value={inputs.confirmPassword}
+              onChange={(e) =>
+                setInputs({ ...inputs, confirmPassword: e.target.value })
+              }
+            />
+          </div>
 
           <GenderCheckBox
             onCheckboxChange={handleCheckboxChange}
