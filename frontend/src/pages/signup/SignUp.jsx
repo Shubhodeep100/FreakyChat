@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import GenderCheckBox from "./GenderCheckBox";
 import { useState } from "react";
-import useSignup from "../../hooks/useSignup";
+import useSignup from "../../hooks/useSignUp";
 import logo from "../../assets/chatlogo.png";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
@@ -120,15 +120,13 @@ const SignUp = () => {
             Already have an account ?
           </Link>
 
-          <div>
-            <button disabled={loading} type="submit" className="button">
-              {loading ? (
-                <span className="loading loading-spinner"></span>
-              ) : (
-                "Sign Up"
-              )}
-            </button>
-          </div>
+          <button type="submit" className="button" disabled={loading}>
+            {loading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Sign Up"
+            )}
+          </button>
         </form>
       </motion.div>
     </div>
