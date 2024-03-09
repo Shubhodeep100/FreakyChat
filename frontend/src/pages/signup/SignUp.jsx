@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import GenderCheckBox from "./GenderCheckBox";
 import { useState } from "react";
-import useSignup from "../../hooks/useSignUp";
+import useSignUp from "../../hooks/useSignUp";
 import logo from "../../assets/chatlogo.png";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
@@ -14,7 +14,7 @@ const SignUp = () => {
     confirmPassword: "",
     gender: "",
   });
-  const { loading, signup } = useSignup();
+  const { loading, signup } = useSignUp();
   const transition = { type: "spring", duration: 3 };
 
   const handleCheckboxChange = (gender) => {
