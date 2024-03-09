@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/chatlogo.png";
-import GenderCheckBox from "./GenderCheckBox";
+import GenderCheckBox from "./signup/GenderCheckBox.jsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
-import useSignup from "../../hooks/useSignup.js"
+import useSignup from "../hooks/useSignup.js";
 const SignUp = () => {
   const transition = { type: "spring", duration: 3 };
   const [inputs, setInputs] = useState({
