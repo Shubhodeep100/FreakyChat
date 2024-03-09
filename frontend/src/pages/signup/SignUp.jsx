@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
 
 const SignUp = () => {
-  const transition = { type: "spring", duration: 3 };
   const [inputs, setInputs] = useState({
     fullName: "",
     username: "",
@@ -15,6 +14,7 @@ const SignUp = () => {
     confirmPassword: "",
     gender: "",
   });
+  const transition = { type: "spring", duration: 3 };
 
   const { loading, signup } = useSignup();
 
@@ -122,7 +122,7 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button type="submit" className="button" disabled={loading}>
+            <button type="submit" className="button">
               {loading ? (
                 <span className="loading loading-spinner"></span>
               ) : (
@@ -130,7 +130,6 @@ const SignUp = () => {
               )}
             </button>
           </div>
-
         </form>
       </motion.div>
     </div>
