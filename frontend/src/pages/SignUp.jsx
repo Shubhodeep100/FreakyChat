@@ -3,7 +3,7 @@ import logo from "../assets/chatlogo.png";
 import GenderCheckBox from "./signup/GenderCheckBox.jsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import chaticon from "../../assets/chat.png";
+import chaticon from "../assets/chat.png";
 import useSignup from "../hooks/useSignup.js";
 const SignUp = () => {
   const transition = { type: "spring", duration: 3 };
@@ -54,6 +54,7 @@ const SignUp = () => {
         >
           <div className="flex items-center gap-3 justify-center">
             <img src={logo} alt="frenzychat" className="h-10 w-10" />
+
             <h1 className="text-3xl text-violet-700 tracking-wide font-signature">
               Freaky{" "}
               <span className="bg-gradient-to-r from-orange-600 via-amber-300 to-orange-600 bg-clip-text text-transparent">
