@@ -1,10 +1,10 @@
 import { useState } from "react";
-import useSignup from "../hooks/useSignup";
+import useSignup from "../../hooks/useSignup.js";
 import { Link } from "react-router-dom";
-import logo from "../assets/chatlogo.png";
-import GenderCheckBox from "./signup/GenderCheckBox.jsx";
+import logo from "../../assets/chatlogo.png";
+import GenderCheckBox from "./GenderCheckBox.jsx";
 import { motion } from "framer-motion";
-import chaticon from "../assets/chat.png";
+import chaticon from "../../assets/chat.png";
 
 
 const SignUp = () => {

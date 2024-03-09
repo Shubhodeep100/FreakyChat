@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/chatlogo.png";
+import logo from "../../assets/chatlogo.png";
 import { useState } from "react";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../../hooks/useLogin";
 import { motion } from "framer-motion";
-import chaticon from "../assets/chat.png";
+import chaticon from "../../assets/chat.png";
 function Login() {
   const transition = { type: "spring", duration: 3 };
   const [username, setUsername] = useState("");
