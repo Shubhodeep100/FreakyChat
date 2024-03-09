@@ -14,9 +14,8 @@ const SignUp = () => {
     confirmPassword: "",
     gender: "",
   });
-  const transition = { type: "spring", duration: 3 };
-
   const { loading, signup } = useSignup();
+  const transition = { type: "spring", duration: 3 };
 
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender });
@@ -122,7 +121,7 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button disabled={loading} className="button">
+            <button disabled={loading} type="submit" className="button">
               {loading ? (
                 <span className="loading loading-spinner"></span>
               ) : (
