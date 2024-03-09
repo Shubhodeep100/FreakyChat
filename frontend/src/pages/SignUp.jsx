@@ -1,5 +1,5 @@
-import useSignup from "../hooks/useSignup";
 import { useState } from "react";
+import useSignup from "../hooks/useSignup";
 import { Link } from "react-router-dom";
 import logo from "../assets/chatlogo.png";
 import GenderCheckBox from "./signup/GenderCheckBox.jsx";
