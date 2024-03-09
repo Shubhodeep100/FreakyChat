@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useSignup from "../../hooks/useSignup.js";
+// import useSignup from "../../hooks/useSignup.js";
 import { Link } from "react-router-dom";
 import logo from "../../assets/chatlogo.png";
 import GenderCheckBox from "./GenderCheckBox.jsx";
@@ -17,16 +17,16 @@ const SignUp = () => {
     gender: "",
   });
 
-  const { loading, signup } = useSignup();
+  // const { loading, signup } = useSignup();
 
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await signup(inputs);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   await signup(inputs);
+  // };
 
   return (
     <div className="flex flex-row justify-between items-center mx-6">
@@ -52,7 +52,7 @@ const SignUp = () => {
       >
         <form
           className="flex flex-col gap-5 px-10 py-6 formCont min-w-96 backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-3xl"
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
         >
           <div className="flex items-center gap-3 justify-center">
             <img src={logo} alt="frenzychat" className="h-10 w-10" />
@@ -108,14 +108,14 @@ const SignUp = () => {
               Already have an account ?
             </Link>
           </div>
-
+{/* 
           <button type="submit" className="button" disabled={loading}>
             {loading ? (
               <span className="loading loading-spinner"></span>
             ) : (
               "Sign Up"
             )}
-          </button>
+          </button> */}
         </form>
       </motion.div>
     </div>
