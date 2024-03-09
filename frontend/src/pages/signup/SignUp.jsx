@@ -2,7 +2,7 @@ import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
 import { Link } from "react-router-dom";
 import logo from "../../assets/chatlogo.png";
-import GenderCheckBox from "./GenderCheckBox.jsx";
+import GenderCheckBox from "./GenderCheckBox";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
 
@@ -130,7 +130,7 @@ const SignUp = () => {
               )}
             </button>
           </div>
-          
+
         </form>
       </motion.div>
     </div>
