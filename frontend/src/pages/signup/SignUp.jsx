@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
+import GenderCheckBox from "./GenderCheckBox";
 import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
-import { Link } from "react-router-dom";
 import logo from "../../assets/chatlogo.png";
-import GenderCheckBox from "./GenderCheckBox";
 import { motion } from "framer-motion";
 import chaticon from "../../assets/chat.png";
 
