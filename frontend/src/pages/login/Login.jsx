@@ -38,7 +38,7 @@ function Login() {
         className="absolute"
       >
         <form
-          className="flex flex-col gap-7 px-16 py-14 formCont  min-w-96 backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-3xl"
+          className="flex flex-col gap-7 px-10 py-14 formCont  min-w-96 rounded-3xl"
           onSubmit={handleSubmit}
         >
           <div className="flex items-center flex-col gap-3 justify-center">

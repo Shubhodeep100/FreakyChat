@@ -48,12 +48,12 @@ const SignUp = () => {
 
       <motion.div
         initial={{ right: "-3rem" }}
-        whileInView={{ right: "1rem" }}
+        whileInView={{ right: "3rem" }}
         transition={transition}
         className="absolute"
       >
         <form
-          className="flex flex-col gap-5 px-10 py-6 formCont min-w-96 backdrop-filter backdrop-blur-lg bg-opacity-50 rounded-3xl"
+          className="flex flex-col gap-5 px-10 py-6 formCont min-w-96 rounded-3xl"
           onSubmit={handleSubmit}
         >
           <div className="flex items-center gap-3 justify-center">
@@ -191,7 +191,7 @@ const useSignUp = () => {
 
   return { loading, signup };
 };
-// export default useSignUp;
+
 
 function handleInputErrors({
   fullName,
