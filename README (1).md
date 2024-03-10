@@ -12,7 +12,9 @@
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screenshot 2024-03-10 224826](https://github.com/Shubhodeep100/FreakyChat/assets/96099026/4833f72a-50e3-4d60-b389-2765839f5630)
+![Screenshot 2024-03-10 224741](https://github.com/Shubhodeep100/FreakyChat/assets/96099026/5b0427a1-a4f3-49aa-99a1-eed64e983380)
+
 
 
 ## Tech Stack
