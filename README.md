@@ -33,5 +33,6 @@ https://freakychat.onrender.com/login
 - SignUp/Login
 - Real-time chat
 - Text notification alert
+- Online user status
 - Secured login via JWT Auth
 
