@@ -103,7 +103,10 @@ const MessageContainer = () => {
             </div>
           </div>
           <Messages />
-          <MessageInput inputRef={inputRef} />
+          <MessageInput
+            inputRef={inputRef}
+            selectedConversation={selectedConversation}
+          />
         </>
       )}
     </div>
