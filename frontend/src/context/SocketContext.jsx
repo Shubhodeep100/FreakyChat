@@ -16,7 +16,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io("https://freakychat.onrender.com", {
         query: {
           userId: authUser._id,
         },
@@ -26,18 +26,6 @@ export const SocketContextProvider = ({ children }) => {
       newSocket.on("getOnlineUsers", (users) => {
         setOnlineUsers(users);
       });
-
-      // // Handle received messages here
-      // newSocket.on("receiveMessage", ({ senderId, message }) => {
-      //   const newIncomingMessage = {
-      //     senderId,
-      //     message,
-      //   };
-      //   setIncomingMessages((prevMessages) => [
-      //     ...prevMessages,
-      //     newIncomingMessage,
-      //   ]);
-      // });
 
       return () => {
         newSocket.close();
