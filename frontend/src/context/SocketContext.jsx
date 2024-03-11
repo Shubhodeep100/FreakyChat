@@ -27,10 +27,6 @@ export const SocketContextProvider = ({ children }) => {
         setOnlineUsers(users);
       });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> da4366f39b065233ee532ca98752160ac9451afc
       return () => {
         newSocket.close();
         setSocket(null);
