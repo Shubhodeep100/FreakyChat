@@ -13,7 +13,14 @@ const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const [open, setOpen] = useState(false);
   let menuRef = useRef();
+  const inputRef = useRef(null); // Maintain a ref to the input field
 
+  useEffect(() => {
+    // Focus the input field whenever selectedConversation changes
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [selectedConversation]);
   useEffect(() => {
     const handler = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -96,7 +103,7 @@ const MessageContainer = () => {
             </div>
           </div>
           <Messages />
-          <MessageInput />
+          <MessageInput inputRef={inputRef} />
         </>
       )}
     </div>
