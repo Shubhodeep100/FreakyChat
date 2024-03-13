@@ -83,7 +83,7 @@ function Login() {
             to="/signup"
             className="text-sm hover:underline text-gray-800 hover:text-blue-600"
           >
-            {"Don't"} have an account ?
+            {"Don't"} have an account ? <span>Signup</span>
           </Link>
 
           <button type="submit" className="button" disabled={loading}>
