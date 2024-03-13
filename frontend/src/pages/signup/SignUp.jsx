@@ -132,9 +132,10 @@ const SignUp = () => {
 
           <Link
             to={"/login"}
-            className="text-sm hover:underline hover:text-blue-600"
+            className="text-sm text-gray-800  hover:text-blue-600"
           >
-            Already have an account ? <span>Login</span>
+            <span className="hover:underline"> Already have an account ?</span>
+            <span className="ml-2 font-semibold">Login</span>
           </Link>
 
           <button type="submit" className="button" disabled={loading}>
