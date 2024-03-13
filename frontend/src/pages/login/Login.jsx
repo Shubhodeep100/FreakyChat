@@ -15,11 +15,24 @@ function Login() {
     e.preventDefault();
     await login(username, password);
   };
+  const text = "Never miss a loved ones message.".split(" ");
 
   return (
     <div className="flex flex-row justify-between gap-1 items-center mx-6 loginwall relative">
       <div className="text-white sm:text-4xl md:text-7xl font-bold text-wrap cursor-default w-3/5 space-y-2">
-        <h1>Never miss a loved ones message.</h1>
+        {text.map((el, i) => (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 2,
+              delay: i / 6,
+            }}
+            key={i}
+          >
+            {el}{" "}
+          </motion.span>
+        ))}
         <div className="flex flex-row gap-6">
           <h1 className="text-gray-400 font-txt">Join today.</h1>
           <div className="flex justify-center items-end">

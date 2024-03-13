@@ -29,11 +29,24 @@ const SignUp = () => {
     e.preventDefault();
     await signup(inputs);
   };
+   const text = "Never miss a loved ones message.".split(" ");
 
   return (
     <div className="flex flex-row justify-between items-center mx-6">
       <div className="text-white text-3xl font-bold text-wrap sm:text-4xl md:text-7xl cursor-default w-3/5 space-y-2">
-        <h1>Never miss a loved ones message.</h1>
+        {text.map((el, i) => (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 2,
+              delay: i / 6,
+            }}
+            key={i}
+          >
+            {el}{" "}
+          </motion.span>
+        ))}
         <div className="flex flex-row gap-6">
           <h1 className="text-gray-500 font-txt">Join today.</h1>
           <div className="flex justify-center items-end">
