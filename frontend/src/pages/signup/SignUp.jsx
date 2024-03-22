@@ -8,8 +8,6 @@ import chaticon from "../../assets/chat.png";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../../context/AuthContext";
 
-
-
 const SignUp = () => {
   const [inputs, setInputs] = useState({
     fullName: "",
@@ -29,7 +27,7 @@ const SignUp = () => {
     e.preventDefault();
     await signup(inputs);
   };
-   const text = "Never miss a loved ones message.".split(" ");
+  const text = "Never miss a loved ones message.".split(" ");
 
   return (
     <div className="flex flex-row justify-between items-center mx-6">
@@ -66,7 +64,7 @@ const SignUp = () => {
         className="absolute"
       >
         <form
-          className="flex flex-col gap-5 px-10 py-6 formCont min-w-96 rounded-3xl"
+          className="flex flex-col gap-4 px-10 py-6 formCont min-w-96 rounded-3xl"
           onSubmit={handleSubmit}
         >
           <div className="flex items-center gap-3 justify-center">
@@ -130,13 +128,15 @@ const SignUp = () => {
             selectedGender={inputs.gender}
           />
 
-          <Link
-            to={"/login"}
-            className="text-sm text-gray-800  hover:text-blue-600"
-          >
-            <span className="hover:underline"> Already have an account ?</span>
-            <span className="ml-2 font-semibold">Login</span>
-          </Link>
+          <div>
+            <span className="text-black"> Already have an account?</span>
+            <Link
+              to={"/login"}
+              className=" text-blue-500  hover:text-blue-600"
+            >
+              <span className="ml-1 font-bold">Login</span>
+            </Link>
+          </div>
 
           <button type="submit" className="button" disabled={loading}>
             {loading ? (
@@ -152,7 +152,6 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
 
 // SignUp hook
 
@@ -205,7 +204,6 @@ const useSignUp = () => {
 
   return { loading, signup };
 };
-
 
 function handleInputErrors({
   fullName,

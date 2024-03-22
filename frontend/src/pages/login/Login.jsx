@@ -79,13 +79,15 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Link
-            to="/signup"
-            className="text-sm  text-gray-800 hover:text-blue-600"
-          >
-            <span className="hover:underline">{"Don't"} have an account ?</span>
-            <span className="ml-2 font-semibold">Signup</span>
-          </Link>
+          <div>
+            <span className="text-black">{"Don't"} have an account?</span>
+            <Link
+              to="/signup"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              <span className="ml-1 font-bold">Signup</span>
+            </Link>
+          </div>
 
           <button type="submit" className="button" disabled={loading}>
             {loading ? (
