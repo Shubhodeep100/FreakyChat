@@ -34,7 +34,7 @@ function Login() {
           </motion.span>
         ))}
         <div className="flex flex-row gap-6">
-          <h1 className="text-gray-400 font-txt">Join today.</h1>
+          <h1 className="text-gray-500 font-txt">Join today.</h1>
           <div className="flex justify-center items-end">
             <img
               src={chaticon}
