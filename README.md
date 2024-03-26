@@ -18,7 +18,7 @@
 
 ## Tech Stack
 
-**Client:** ReactJs, TailwindCSS
+**Client:** ReactJs,TailwindCSS, DaisyUI, Zustand
 
 **Server:** Node, Express, Socket.Io, MongoDB, JWT Auth
 
