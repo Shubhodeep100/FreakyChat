@@ -59,11 +59,16 @@ body {
   @apply absolute items-center flex flex-col left-0 bottom-12 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer;
 }
 
-.dropdown-menu,
-.dropdown-menu2 {
+.dropdown-menu {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
+  transition: var(--speed) ease;
+}
+.dropdown-menu2 {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
   transition: var(--speed) ease;
 }
 
@@ -76,16 +81,8 @@ body {
 
 .senderBubble {
   background: #fdc830; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f37335,
-    #fdc830
-  ); 
-  background: linear-gradient(
-    to right,
-    #f37335,
-    #fdc830
-  );
+  background: -webkit-linear-gradient(to right, #f37335, #fdc830);
+  background: linear-gradient(to right, #f37335, #fdc830);
 }
 
 .chatbody {
