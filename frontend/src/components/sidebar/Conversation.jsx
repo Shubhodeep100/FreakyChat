@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSocketContext } from "../../context/SocketContext";
 import useConversation from "../../zustand/useConversation";
-import { AiOutlineDown } from "react-icons/ai";
+import { IoChevronDownOutline } from "react-icons/io5";
 const Conversation = ({ conversation, lastIdx }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === conversation._id;
@@ -30,7 +30,7 @@ const Conversation = ({ conversation, lastIdx }) => {
             <p className=" text-gray-200 font-txt">{conversation.fullName}</p>
           </div>
         </div>
-        {isHovered && <AiOutlineDown className="text-center" />}
+        {isHovered && <IoChevronDownOutline className="text-center" />}
       </div>
 
       {!lastIdx && <div className="divider my-0 py-0 h-1" />}
