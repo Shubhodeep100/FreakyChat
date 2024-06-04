@@ -52,6 +52,8 @@ body {
   @apply bg-gradient-to-r from-gray-50 to-stone-200;
 }
 
+
+/* Dropdown CSS */
 .dropdown-menu {
   @apply absolute items-center flex flex-col right-1 top-10 bg-zinc-600 rounded-md shadow-md w-40  z-50 cursor-pointer;
 }
