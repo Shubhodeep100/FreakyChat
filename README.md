@@ -28,7 +28,7 @@
 [Demo](https://freakychat.onrender.com/login)
 
 ## Demo-Video  
-https://www.youtube.com/watch?v=k1Khk9dJVyk&t=24s
+[Youtube Video](https://www.youtube.com/watch?v=k1Khk9dJVyk&t=24s)
 
 ## Features
 
